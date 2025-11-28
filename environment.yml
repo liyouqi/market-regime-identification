@@ -1,0 +1,22 @@
+name: market-fear-regime-analysis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - statsmodels
+  - networkx          # use for network analysis
+  - plotly            #
+  - jupyterlab        #
+  - tqdm              # progress bar
+  - pip               
+  - pip:
+      - yfinance      # 
+      - adjustText    # 
+      - python-louvain # community detection for networks
