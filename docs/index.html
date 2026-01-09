@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Market Regime Monitor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔴🟢 Crypto Market Regime Monitor</h1>
+            <p class="subtitle">AI-Powered Fear & Greed Regime Identification</p>
+            <div class="update-info">
+                <p class="update-time" id="updateTime">Loading...</p>
+                <p class="data-freshness" id="dataFreshness"></p>
+            </div>
+        </header>
+        <!-- Project Introduction -->
+        <section class="intro-section">
+            <h2>📊 About This Project</h2>
+            <p class="intro-text">
+                This dashboard uses <strong>unsupervised machine learning (K-Means clustering)</strong> to identify cryptocurrency market regimes based on 20+ digital assets and the Fear & Greed Index. The model discovers two distinct emotional states: <span class="fear-text">Fear</span> and <span class="greed-text">Greed</span>.
+            </p>
+            
+            <div class="formula-box">
+                <h3>📐 Key Features</h3>
+                <div class="formula-grid">
+                    <div class="formula-item">
+                        <div class="formula-label">Log Return</div>
+                        <div class="formula-math">ret<sub>BTC</sub> = ln(P<sub>t</sub> / P<sub>t-1</sub>)</div>
+                    </div>
+                    <div class="formula-item">
+                        <div class="formula-label">Volatility (7-day)</div>
+                        <div class="formula-math">σ<sub>7d</sub> = std(ret) × √365</div>
+                    </div>
+                    <div class="formula-item">
+                        <div class="formula-label">Market Breadth</div>
+                        <div class="formula-math">breadth = Σ(P > MA<sub>50</sub>) / n</div>
+                    </div>
+                    <div class="formula-item">
+                        <div class="formula-label">F&G Normalized</div>
+                        <div class="formula-math">fg<sub>norm</sub> = fg<sub>raw</sub> / 100</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-explanation">
+                <p><strong>💡 Chart Interpretation:</strong></p>
+                <p>• The price line shows <strong>Bitcoin (BTC)</strong> as a market representative</p>
+                <p>• The colored markers (<span class="fear-marker">▼ Fear</span> / <span class="greed-marker">◆ Greed</span>) represent the <strong>entire crypto market sentiment</strong> derived from 20 assets</p>
+                <p>• BTC serves as the reference price, while regime labels reflect the broader market emotional state</p>
+            </div>
+        </section>
+        <!-- Current Regime Card -->
+        <section class="current-regime">
+            <div class="regime-card" id="regimeCard">
+                <div class="regime-indicator" id="regimeIndicator">
+                    <div class="regime-icon" id="regimeIcon">●</div>
+                    <div class="regime-label" id="regimeLabel">Loading...</div>
+                </div>
+                <div class="regime-confidence">
+                    <span id="confidence">--</span>% confidence
+                </div>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">BTC Price</div>
+                    <div class="metric-value" id="btcPrice">$--,---</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">F&G Index</div>
+                    <div class="metric-value" id="fgIndex">--</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Volatility (7d)</div>
+                    <div class="metric-value" id="volatility">--.--</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Market Breadth</div>
+                    <div class="metric-value" id="breadth">--%</div>
+                </div>
+            </div>
+
+            <div class="last-switch" id="lastSwitch" style="display: none;">
+                <p>Last regime switch: <strong id="switchDate">--</strong> (<span id="switchDays">--</span> days ago)</p>
+            </div>
+        </section>
+
+        <!-- Period Statistics -->
+        <section class="period-stats">
+            <h2>📊 Period Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>This Week</h3>
+                    <div class="stat-bar">
+                        <div class="bar-fear" id="weekFear" style="width: 0%"></div>
+                        <div class="bar-greed" id="weekGreed" style="width: 0%"></div>
+                    </div>
+                    <div class="stat-labels">
+                        <span class="fear-label">Fear <span id="weekFearPct">0%</span></span>
+                        <span class="greed-label">Greed <span id="weekGreedPct">0%</span></span>
+                    </div>
+                    <p class="stat-switches">Switches: <span id="weekSwitches">0</span></p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>This Month</h3>
+                    <div class="stat-bar">
+                        <div class="bar-fear" id="monthFear" style="width: 0%"></div>
+                        <div class="bar-greed" id="monthGreed" style="width: 0%"></div>
+                    </div>
+                    <div class="stat-labels">
+                        <span class="fear-label">Fear <span id="monthFearPct">0%</span></span>
+                        <span class="greed-label">Greed <span id="monthGreedPct">0%</span></span>
+                    </div>
+                    <p class="stat-switches">Switches: <span id="monthSwitches">0</span></p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>This Quarter</h3>
+                    <div class="stat-bar">
+                        <div class="bar-fear" id="quarterFear" style="width: 0%"></div>
+                        <div class="bar-greed" id="quarterGreed" style="width: 0%"></div>
+                    </div>
+                    <div class="stat-labels">
+                        <span class="fear-label">Fear <span id="quarterFearPct">0%</span></span>
+                        <span class="greed-label">Greed <span id="quarterGreedPct">0%</span></span>
+                    </div>
+                    <p class="stat-switches">Switches: <span id="quarterSwitches">0</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regime Duration Statistics -->
+        <section class="regime-stats">
+            <h2>⏱️ Regime Duration Statistics (Last 2 Years)</h2>
+            <div class="stats-cards">
+                <div class="stats-card fear-themed">
+                    <div class="stats-icon">😰</div>
+                    <div class="stats-content">
+                        <div class="stats-label">Avg Fear Duration</div>
+                        <div class="stats-value" id="avgFearDuration">-</div>
+                        <div class="stats-unit">days</div>
+                    </div>
+                </div>
+                
+                <div class="stats-card greed-themed">
+                    <div class="stats-icon">🤑</div>
+                    <div class="stats-content">
+                        <div class="stats-label">Avg Greed Duration</div>
+                        <div class="stats-value" id="avgGreedDuration">-</div>
+                        <div class="stats-unit">days</div>
+                    </div>
+                </div>
+                
+                <div class="stats-card neutral-themed">
+                    <div class="stats-icon">🔄</div>
+                    <div class="stats-content">
+                        <div class="stats-label">Total Regime Switches</div>
+                        <div class="stats-value" id="totalSwitches">-</div>
+                        <div class="stats-unit">times</div>
+                    </div>
+                </div>
+                
+                <div class="stats-card current-themed">
+                    <div class="stats-icon">📅</div>
+                    <div class="stats-content">
+                        <div class="stats-label">Current Regime Duration</div>
+                        <div class="stats-value" id="currentDuration">-</div>
+                        <div class="stats-unit">days</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Charts -->
+        <section class="timeline-chart">
+            <h2>📈 7-Day Timeline</h2>
+            <canvas id="timelineChart7d"></canvas>
+        </section>
+
+        <section class="timeline-chart">
+            <h2>📈 30-Day Timeline</h2>
+            <canvas id="timelineChart30d"></canvas>
+        </section>
+
+        <section class="timeline-chart">
+            <h2>📈 100-Day Timeline</h2>
+            <canvas id="timelineChart100d"></canvas>
+        </section>
+
+        <section class="timeline-chart">
+            <h2>📈 1-Year Timeline</h2>
+            <canvas id="timelineChart365d"></canvas>
+        </section>
+
+        <!-- Historical Events Validation -->
+        <section class="events-section">
+            <h2>🎯 Historical Events Validation</h2>
+            <p class="events-intro">Comparing our model's predictions with major crypto market events</p>
+            <div id="eventsAccuracy" class="accuracy-badge"></div>
+            <div class="events-table-container">
+                <table class="events-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Event</th>
+                            <th>Description</th>
+                            <th>Expected</th>
+                            <th>Predicted</th>
+                            <th>Confidence</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Regime Heatmap Calendar -->
+        <section class="calendar-heatmap-section">
+            <h2>🔥 Regime Heatmap Calendar (Last 2 Years)</h2>
+            <p class="calendar-subtitle">Each cell represents one day. Hover to see details. Red = Fear | Green = Greed | Darker = Higher confidence</p>
+            <div id="calendarContainer" class="calendar-container">
+                <!-- Populated by JavaScript -->
+            </div>
+            <div class="calendar-legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ff4757;"></div>
+                    <span>Fear (High)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: rgba(255, 71, 87, 0.4);"></div>
+                    <span>Fear (Low)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: rgba(46, 213, 115, 0.4);"></div>
+                    <span>Greed (Low)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #2ed573;"></div>
+                    <span>Greed (High)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Built with K-Means clustering (k=2) | 87.5% historical event accuracy | Silhouette Score: 0.33</p>
+            <p><strong>Disclaimer:</strong> This is not investment advice. For educational purposes only.</p>
+            <p class="github-link">
+                <a href="https://github.com/yourname/MarketFearRegimeIdentification" target="_blank">
+                    📁 View Project on GitHub
+                </a>
+                <span class="separator">|</span>
+                <a href="../blog/" target="_blank">
+                    📝 Read Blog Series
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

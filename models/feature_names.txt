@@ -1,0 +1,4 @@
+ret_btc
+vol_btc_7
+fg_norm
+pct_above_ma50
