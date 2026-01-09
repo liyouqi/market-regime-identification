@@ -39,4 +39,7 @@ jobs:
           git add data/processed/full_market_matrix.csv
           git add docs/data/regime_data.json
           git add models/*.pkl
+          # Pull latest changes first to avoid conflicts
+          git pull --rebase origin main || true
+          # Commit and push if there are changes
           git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update: $(date +'%Y-%m-%d %H:%M UTC')" && git push)
