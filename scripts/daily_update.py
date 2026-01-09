@@ -10,15 +10,23 @@ import json
 import os
 import sys
 from datetime import datetime, timedelta
+from pathlib import Path
 import warnings
 warnings.filterwarnings('ignore')
 
+# Get the project root directory
+SCRIPT_DIR = Path(__file__).parent.absolute()
+PROJECT_ROOT = SCRIPT_DIR.parent
+DATA_DIR = PROJECT_ROOT / 'data' / 'processed'
+MODELS_DIR = PROJECT_ROOT / 'models'
+DOCS_DATA_DIR = PROJECT_ROOT / 'docs' / 'data'
+
 def load_model():
     """Load trained model and scaler"""
-    with open('../models/kmeans_model.pkl', 'rb') as f:
+    with open(MODELS_DIR / 'kmeans_model.pkl', 'rb') as f:
         model = pickle.load(f)
     
-    with open('../models/scaler.pkl', 'rb') as f:
+    with open(MODELS_DIR / 'scaler.pkl', 'rb') as f:
         scaler = pickle.load(f)
     
     return model, scaler
@@ -371,7 +379,7 @@ def update_dashboard_data():
     
     # Load historical data
     print("\n1. Loading historical data...")
-    df = pd.read_csv('../data/processed/full_market_matrix.csv', parse_dates=['Date'])
+    df = pd.read_csv(DATA_DIR / 'full_market_matrix.csv', parse_dates=['Date'])
     last_date = df['Date'].max()
     today = datetime.now().date()
     print(f"   Data range: {df['Date'].min().date()} to {last_date.date()}")
@@ -528,13 +536,14 @@ def update_dashboard_data():
         'historical_events': events_with_predictions
     }
     
-    # Save to8. Saving to JSON...")
-    os.makedirs('../docs/data', exist_ok=True)
+    # Save to JSON
+    print("\n11. Saving to JSON...")
+    DOCS_DATA_DIR.mkdir(parents=True, exist_ok=True)
     
-    with open('../docs/data/regime_data.json', 'w') as f:
+    with open(DOCS_DATA_DIR / 'regime_data.json', 'w') as f:
         json.dump(output_data, f, indent=2)
     
-    print("   ✓ Saved to ../docs/data/regime_data.json")
+    print(f"   ✓ Saved to {DOCS_DATA_DIR / 'regime_data.json'}")
     
     print("\n" + "="*70)
     print("✅ Dashboard data updated successfully!")
