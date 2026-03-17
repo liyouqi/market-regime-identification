@@ -1,52 +1,48 @@
 {
   "meta": {
-    "last_update": "2026-03-16 01:46:06 UTC",
-    "data_date": "2026-03-16",
+    "last_update": "2026-03-17 01:23:29 UTC",
+    "data_date": "2026-03-17",
     "mode": "production",
     "data_freshness": "up-to-date"
   },
   "current": {
     "regime": "fear",
-    "regime_id": 0,
+    "regime_id": 1,
     "confidence": 54.2,
-    "btc_price": 72588.0,
-    "fg_index": 23.0,
-    "volatility_7d": 0.3455,
-    "market_breadth": 45.0
+    "btc_price": 75784.0,
+    "fg_index": 28.0,
+    "volatility_7d": 0.3547,
+    "market_breadth": 80.0
   },
   "period_stats": {
     "week": {
-      "fear_pct": 100.0,
-      "greed_pct": 0.0,
-      "switches": 0
+      "fear_pct": 85.7,
+      "greed_pct": 14.3,
+      "switches": 1
     },
     "month": {
-      "fear_pct": 100.0,
-      "greed_pct": 0.0,
-      "switches": 0
+      "fear_pct": 96.7,
+      "greed_pct": 3.3,
+      "switches": 1
     },
     "quarter": {
-      "fear_pct": 100.0,
-      "greed_pct": 0.0,
-      "switches": 0
+      "fear_pct": 96.8,
+      "greed_pct": 3.2,
+      "switches": 1
     }
   },
   "regime_stats": {
     "avg_fear_duration": 14.96,
-    "avg_greed_duration": 14.2,
-    "total_switches": 49,
-    "current_duration": 57
+    "avg_greed_duration": 13.653846153846153,
+    "total_switches": 50,
+    "current_duration": 1
   },
-  "last_switch": null,
+  "last_switch": {
+    "date": "2026-03-17",
+    "days_ago": 0
+  },
   "history": {
     "7d": [
-      {
-        "date": "2026-03-09",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 72.6,
-        "btc_price": 66309.0
-      },
       {
         "date": "2026-03-10",
         "regime": "fear",
@@ -95,16 +91,16 @@
         "regime_id": 0,
         "confidence": 60.4,
         "btc_price": 72588.0
+      },
+      {
+        "date": "2026-03-17",
+        "regime": "greed",
+        "regime_id": 1,
+        "confidence": 54.0,
+        "btc_price": 75784.0
       }
     ],
     "30d": [
-      {
-        "date": "2026-02-14",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 65.6,
-        "btc_price": 69058.0
-      },
       {
         "date": "2026-02-15",
         "regime": "fear",
@@ -314,16 +310,16 @@
         "regime_id": 0,
         "confidence": 60.4,
         "btc_price": 72588.0
+      },
+      {
+        "date": "2026-03-17",
+        "regime": "greed",
+        "regime_id": 1,
+        "confidence": 54.0,
+        "btc_price": 75784.0
       }
     ],
     "100d": [
-      {
-        "date": "2025-12-06",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 82.1,
-        "btc_price": 89272.38
-      },
       {
         "date": "2025-12-07",
         "regime": "fear",
@@ -1009,16 +1005,16 @@
         "regime_id": 0,
         "confidence": 60.4,
         "btc_price": 72588.0
+      },
+      {
+        "date": "2026-03-17",
+        "regime": "greed",
+        "regime_id": 1,
+        "confidence": 54.0,
+        "btc_price": 75784.0
       }
     ],
     "365d": [
-      {
-        "date": "2025-03-16",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 79.9,
-        "btc_price": 82579.69
-      },
       {
         "date": "2025-03-17",
         "regime": "fear",
@@ -3559,17 +3555,17 @@
         "regime_id": 0,
         "confidence": 60.4,
         "btc_price": 72588.0
+      },
+      {
+        "date": "2026-03-17",
+        "regime": "greed",
+        "regime_id": 1,
+        "confidence": 54.0,
+        "btc_price": 75784.0
       }
     ]
   },
   "calendar": [
-    {
-      "date": "2024-03-16",
-      "regime": "greed",
-      "regime_id": 1,
-      "confidence": 61.9,
-      "btc_price": 65315.12
-    },
     {
       "date": "2024-03-17",
       "regime": "greed",
@@ -8665,6 +8661,13 @@
       "regime_id": 0,
       "confidence": 60.4,
       "btc_price": 72588.0
+    },
+    {
+      "date": "2026-03-17",
+      "regime": "greed",
+      "regime_id": 1,
+      "confidence": 54.0,
+      "btc_price": 75784.0
     }
   ],
   "historical_events": [
