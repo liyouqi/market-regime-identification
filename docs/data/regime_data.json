@@ -1,29 +1,29 @@
 {
   "meta": {
-    "last_update": "2026-05-16 02:11:25 UTC",
-    "data_date": "2026-05-16",
+    "last_update": "2026-05-17 02:26:28 UTC",
+    "data_date": "2026-05-17",
     "mode": "production",
     "data_freshness": "up-to-date"
   },
   "current": {
     "regime": "fear",
-    "regime_id": 1,
+    "regime_id": 0,
     "confidence": 54.2,
-    "btc_price": 79133.0,
-    "fg_index": 31.0,
-    "volatility_7d": 0.2661,
-    "market_breadth": 75.0
+    "btc_price": 77833.0,
+    "fg_index": 27.0,
+    "volatility_7d": 0.2802,
+    "market_breadth": 60.0
   },
   "period_stats": {
     "week": {
-      "fear_pct": 0.0,
-      "greed_pct": 100.0,
-      "switches": 0
+      "fear_pct": 14.3,
+      "greed_pct": 85.7,
+      "switches": 1
     },
     "month": {
-      "fear_pct": 23.3,
-      "greed_pct": 76.7,
-      "switches": 4
+      "fear_pct": 26.7,
+      "greed_pct": 73.3,
+      "switches": 5
     },
     "quarter": {
       "fear_pct": 25.8,
@@ -32,24 +32,17 @@
     }
   },
   "regime_stats": {
-    "avg_fear_duration": 14.576923076923077,
-    "avg_greed_duration": 12.962962962962964,
-    "total_switches": 52,
-    "current_duration": 14
+    "avg_fear_duration": 14.074074074074074,
+    "avg_greed_duration": 12.925925925925926,
+    "total_switches": 53,
+    "current_duration": 1
   },
   "last_switch": {
-    "date": "2026-05-03",
-    "days_ago": 13
+    "date": "2026-05-17",
+    "days_ago": 0
   },
   "history": {
     "7d": [
-      {
-        "date": "2026-05-09",
-        "regime": "greed",
-        "regime_id": 1,
-        "confidence": 61.4,
-        "btc_price": 80405.0
-      },
       {
         "date": "2026-05-10",
         "regime": "greed",
@@ -98,16 +91,16 @@
         "regime_id": 1,
         "confidence": 52.5,
         "btc_price": 79133.0
+      },
+      {
+        "date": "2026-05-17",
+        "regime": "fear",
+        "regime_id": 0,
+        "confidence": 54.3,
+        "btc_price": 77833.0
       }
     ],
     "30d": [
-      {
-        "date": "2026-04-16",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 61.7,
-        "btc_price": 74633.0
-      },
       {
         "date": "2026-04-17",
         "regime": "greed",
@@ -317,16 +310,16 @@
         "regime_id": 1,
         "confidence": 52.5,
         "btc_price": 79133.0
+      },
+      {
+        "date": "2026-05-17",
+        "regime": "fear",
+        "regime_id": 0,
+        "confidence": 54.3,
+        "btc_price": 77833.0
       }
     ],
     "100d": [
-      {
-        "date": "2026-02-05",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 67.2,
-        "btc_price": 72569.0
-      },
       {
         "date": "2026-02-06",
         "regime": "fear",
@@ -1026,16 +1019,16 @@
         "regime_id": 1,
         "confidence": 52.5,
         "btc_price": 79133.0
+      },
+      {
+        "date": "2026-05-17",
+        "regime": "fear",
+        "regime_id": 0,
+        "confidence": 54.3,
+        "btc_price": 77833.0
       }
     ],
     "365d": [
-      {
-        "date": "2025-05-16",
-        "regime": "greed",
-        "regime_id": 1,
-        "confidence": 72.8,
-        "btc_price": 103489.29
-      },
       {
         "date": "2025-05-17",
         "regime": "greed",
@@ -3576,17 +3569,17 @@
         "regime_id": 1,
         "confidence": 52.5,
         "btc_price": 79133.0
+      },
+      {
+        "date": "2026-05-17",
+        "regime": "fear",
+        "regime_id": 0,
+        "confidence": 54.3,
+        "btc_price": 77833.0
       }
     ]
   },
   "calendar": [
-    {
-      "date": "2024-05-16",
-      "regime": "greed",
-      "regime_id": 1,
-      "confidence": 51.1,
-      "btc_price": 65231.58
-    },
     {
       "date": "2024-05-17",
       "regime": "greed",
@@ -8682,6 +8675,13 @@
       "regime_id": 1,
       "confidence": 52.5,
       "btc_price": 79133.0
+    },
+    {
+      "date": "2026-05-17",
+      "regime": "fear",
+      "regime_id": 0,
+      "confidence": 54.3,
+      "btc_price": 77833.0
     }
   ],
   "historical_events": [
