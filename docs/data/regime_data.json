@@ -1,52 +1,48 @@
 {
   "meta": {
-    "last_update": "2026-07-21 01:55:08 UTC",
-    "data_date": "2026-07-21",
+    "last_update": "2026-07-22 01:54:01 UTC",
+    "data_date": "2026-07-22",
     "mode": "production",
     "data_freshness": "up-to-date"
   },
   "current": {
     "regime": "fear",
-    "regime_id": 0,
+    "regime_id": 1,
     "confidence": 54.2,
-    "btc_price": 65232.0,
-    "fg_index": 25.0,
-    "volatility_7d": 0.3137,
-    "market_breadth": 45.0
+    "btc_price": 66416.0,
+    "fg_index": 33.0,
+    "volatility_7d": 0.2343,
+    "market_breadth": 60.0
   },
   "period_stats": {
     "week": {
-      "fear_pct": 100.0,
-      "greed_pct": 0.0,
-      "switches": 0
+      "fear_pct": 85.7,
+      "greed_pct": 14.3,
+      "switches": 1
     },
     "month": {
-      "fear_pct": 100.0,
-      "greed_pct": 0.0,
-      "switches": 0
+      "fear_pct": 96.7,
+      "greed_pct": 3.3,
+      "switches": 1
     },
     "quarter": {
-      "fear_pct": 100.0,
-      "greed_pct": 0.0,
-      "switches": 0
+      "fear_pct": 96.8,
+      "greed_pct": 3.2,
+      "switches": 1
     }
   },
   "regime_stats": {
     "avg_fear_duration": 16.64,
-    "avg_greed_duration": 12.52,
-    "total_switches": 49,
-    "current_duration": 66
+    "avg_greed_duration": 12.038461538461538,
+    "total_switches": 50,
+    "current_duration": 1
   },
-  "last_switch": null,
+  "last_switch": {
+    "date": "2026-07-22",
+    "days_ago": 0
+  },
   "history": {
     "7d": [
-      {
-        "date": "2026-07-14",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 71.6,
-        "btc_price": 62437.0
-      },
       {
         "date": "2026-07-15",
         "regime": "fear",
@@ -95,16 +91,16 @@
         "regime_id": 0,
         "confidence": 61.6,
         "btc_price": 65232.0
+      },
+      {
+        "date": "2026-07-22",
+        "regime": "greed",
+        "regime_id": 1,
+        "confidence": 50.6,
+        "btc_price": 66416.0
       }
     ],
     "30d": [
-      {
-        "date": "2026-06-21",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 73.3,
-        "btc_price": 64183.0
-      },
       {
         "date": "2026-06-22",
         "regime": "fear",
@@ -314,16 +310,16 @@
         "regime_id": 0,
         "confidence": 61.6,
         "btc_price": 65232.0
+      },
+      {
+        "date": "2026-07-22",
+        "regime": "greed",
+        "regime_id": 1,
+        "confidence": 50.6,
+        "btc_price": 66416.0
       }
     ],
     "100d": [
-      {
-        "date": "2026-04-12",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 73.6,
-        "btc_price": 71514.0
-      },
       {
         "date": "2026-04-13",
         "regime": "fear",
@@ -1023,16 +1019,16 @@
         "regime_id": 0,
         "confidence": 61.6,
         "btc_price": 65232.0
+      },
+      {
+        "date": "2026-07-22",
+        "regime": "greed",
+        "regime_id": 1,
+        "confidence": 50.6,
+        "btc_price": 66416.0
       }
     ],
     "365d": [
-      {
-        "date": "2025-07-21",
-        "regime": "greed",
-        "regime_id": 1,
-        "confidence": 71.9,
-        "btc_price": 117439.54
-      },
       {
         "date": "2025-07-22",
         "regime": "greed",
@@ -3573,17 +3569,17 @@
         "regime_id": 0,
         "confidence": 61.6,
         "btc_price": 65232.0
+      },
+      {
+        "date": "2026-07-22",
+        "regime": "greed",
+        "regime_id": 1,
+        "confidence": 50.6,
+        "btc_price": 66416.0
       }
     ]
   },
   "calendar": [
-    {
-      "date": "2024-07-21",
-      "regime": "greed",
-      "regime_id": 1,
-      "confidence": 80.1,
-      "btc_price": 68154.52
-    },
     {
       "date": "2024-07-22",
       "regime": "greed",
@@ -8679,6 +8675,13 @@
       "regime_id": 0,
       "confidence": 61.6,
       "btc_price": 65232.0
+    },
+    {
+      "date": "2026-07-22",
+      "regime": "greed",
+      "regime_id": 1,
+      "confidence": 50.6,
+      "btc_price": 66416.0
     }
   ],
   "historical_events": [
