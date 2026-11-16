@@ -1,7 +1,7 @@
 {
   "meta": {
-    "last_update": "2026-11-15 04:02:02 UTC",
-    "data_date": "2026-11-15",
+    "last_update": "2026-11-16 04:01:53 UTC",
+    "data_date": "2026-11-16",
     "mode": "production",
     "data_freshness": "up-to-date"
   },
@@ -9,9 +9,9 @@
     "regime": "fear",
     "regime_id": 0,
     "confidence": 54.2,
-    "btc_price": 64794.0,
+    "btc_price": 65066.0,
     "fg_index": 10.0,
-    "volatility_7d": 0.4267,
+    "volatility_7d": 0.4642,
     "market_breadth": 0.0
   },
   "period_stats": {
@@ -21,35 +21,28 @@
       "switches": 0
     },
     "month": {
-      "fear_pct": 80.0,
-      "greed_pct": 20.0,
+      "fear_pct": 83.3,
+      "greed_pct": 16.7,
       "switches": 1
     },
     "quarter": {
-      "fear_pct": 77.4,
-      "greed_pct": 22.6,
+      "fear_pct": 80.6,
+      "greed_pct": 19.4,
       "switches": 1
     }
   },
   "regime_stats": {
-    "avg_fear_duration": 18.347826086956523,
-    "avg_greed_duration": 13.347826086956522,
+    "avg_fear_duration": 18.391304347826086,
+    "avg_greed_duration": 13.304347826086957,
     "total_switches": 45,
-    "current_duration": 24
+    "current_duration": 25
   },
   "last_switch": {
     "date": "2026-10-23",
-    "days_ago": 23
+    "days_ago": 24
   },
   "history": {
     "7d": [
-      {
-        "date": "2026-11-08",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 84.7,
-        "btc_price": 75781.0
-      },
       {
         "date": "2026-11-09",
         "regime": "fear",
@@ -98,16 +91,16 @@
         "regime_id": 0,
         "confidence": 71.0,
         "btc_price": 64794.0
+      },
+      {
+        "date": "2026-11-16",
+        "regime": "fear",
+        "regime_id": 0,
+        "confidence": 73.7,
+        "btc_price": 65066.0
       }
     ],
     "30d": [
-      {
-        "date": "2026-10-16",
-        "regime": "greed",
-        "regime_id": 1,
-        "confidence": 64.8,
-        "btc_price": 82040.0
-      },
       {
         "date": "2026-10-17",
         "regime": "greed",
@@ -317,16 +310,16 @@
         "regime_id": 0,
         "confidence": 71.0,
         "btc_price": 64794.0
+      },
+      {
+        "date": "2026-11-16",
+        "regime": "fear",
+        "regime_id": 0,
+        "confidence": 73.7,
+        "btc_price": 65066.0
       }
     ],
     "100d": [
-      {
-        "date": "2026-08-07",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 56.9,
-        "btc_price": 64261.0
-      },
       {
         "date": "2026-08-08",
         "regime": "fear",
@@ -1026,16 +1019,16 @@
         "regime_id": 0,
         "confidence": 71.0,
         "btc_price": 64794.0
+      },
+      {
+        "date": "2026-11-16",
+        "regime": "fear",
+        "regime_id": 0,
+        "confidence": 73.7,
+        "btc_price": 65066.0
       }
     ],
     "365d": [
-      {
-        "date": "2025-11-15",
-        "regime": "fear",
-        "regime_id": 0,
-        "confidence": 73.4,
-        "btc_price": 95549.15
-      },
       {
         "date": "2025-11-16",
         "regime": "fear",
@@ -3576,17 +3569,17 @@
         "regime_id": 0,
         "confidence": 71.0,
         "btc_price": 64794.0
+      },
+      {
+        "date": "2026-11-16",
+        "regime": "fear",
+        "regime_id": 0,
+        "confidence": 73.7,
+        "btc_price": 65066.0
       }
     ]
   },
   "calendar": [
-    {
-      "date": "2024-11-15",
-      "regime": "greed",
-      "regime_id": 1,
-      "confidence": 66.9,
-      "btc_price": 91066.01
-    },
     {
       "date": "2024-11-16",
       "regime": "greed",
@@ -8682,6 +8675,13 @@
       "regime_id": 0,
       "confidence": 71.0,
       "btc_price": 64794.0
+    },
+    {
+      "date": "2026-11-16",
+      "regime": "fear",
+      "regime_id": 0,
+      "confidence": 73.7,
+      "btc_price": 65066.0
     }
   ],
   "historical_events": [
